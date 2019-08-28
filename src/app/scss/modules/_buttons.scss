@@ -1,0 +1,20 @@
+/*-------------------------------------*\
+    Buttons
+\*-------------------------------------*/
+.primary-btn {
+    display: inline;
+    padding: 12px 30px;
+    background: $red;
+    border-radius: 40px;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+
+    &:hover, &:focus {
+        opacity: 0.9;
+        color: $white;
+    }
+}

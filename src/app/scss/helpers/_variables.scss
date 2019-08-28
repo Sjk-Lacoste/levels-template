@@ -1,0 +1,27 @@
+// ****************************************
+// Color Variables
+// ****************************************
+$black: #000000;
+$blackish: #333;
+$white: #fff;
+$grey: #cecece;
+$grey-1: #e4e7ed;
+$grey-2: #fbfbfc;
+$grey-3: #8d99ae;
+$grey-4: #b9babc;
+$red: #d10024;
+$purple-blue: #2b2d42; // Headers
+$primary: $red;
+$bg-color: $grey;
+
+// ****************************************
+// Breakpoints for responsitivity
+// ****************************************
+
+
+// ****************************************
+// Fonts Variables
+// ****************************************
+$font-color: $purple-blue;
+$fa-font-path: "../webfonts" !default;
+$font-family: 'Montserrat', sans-serif;

@@ -1,0 +1,66 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $font-family;
+    font-weight: 400;
+    color: $blackish;
+}
+
+/*-------------------------------------*\
+    Typography
+\*-------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $font-color;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+/*-------------------------------------*\
+    Links
+\*-------------------------------------*/
+a {
+    color: $font-color;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+
+    &:hover, &:focus {
+        color: $red;
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+/*-------------------------------------*\
+    Lists
+\*-------------------------------------*/
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: 0;
+}
+
+/*-------------------------------------*\
+    Section
+\*-------------------------------------*/
+.section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
