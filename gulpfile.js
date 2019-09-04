@@ -10,10 +10,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 
+
 // File path variables
 const files = {
     scssPath: 'src/app/scss/**/*.scss',
     jsPath: 'src/app/js/**/*.js',
+		imagesPath: 'src/app/images/**/*',
+		fontsPath: 'src/app/webfonts/**/*',
     basePath: './src/',
     dest: './src/dist/'
 }
@@ -32,12 +35,32 @@ function scssTask() {
 
 // JS task
 function jsTask() {
-    return src(files.jsPath)
+    return src([
+						'node_modules/jquery/dist/jquery.js',
+						'node_modules/bootstrap/dist/js/bootstrap.js',
+            files.jsPath
+        ])
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(dest(files.basePath + 'dist/js'))
         .pipe(browserSync.stream()
     );
+}
+
+// Images
+function imagesTask() {
+	return src(files.imagesPath)
+				.pipe(dest(files.basePath + 'dist/images'))
+				.pipe(browserSync.stream()
+		);
+}
+
+// Webfonts
+function fontsTask() {
+	return src(files.fontsPath)
+				.pipe(dest(files.basePath + 'dist/webfonts'))
+				.pipe(browserSync.stream()
+		);
 }
 
 // Cachebusting task
@@ -58,8 +81,8 @@ function watchTask() {
         }
     });
 
-    watch([files.scssPath, files.jsPath],
-        parallel(scssTask, jsTask)).on('change', browserSync.reload);
+    watch([files.scssPath, files.jsPath, files.imagesPath, files.fontsPath],
+    parallel(scssTask, jsTask, imagesTask, fontsTask)).on('change', browserSync.reload);
     watch(files.basePath + '**/*.html').on('change', browserSync.reload);
 }
 
@@ -67,7 +90,7 @@ function watchTask() {
 
 // Default task
 exports.default = series(
-    parallel(scssTask, jsTask),
+    parallel(scssTask, jsTask, imagesTask, fontsTask),
     cacheBustTask,
     watchTask
 );

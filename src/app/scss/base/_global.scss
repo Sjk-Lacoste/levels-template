@@ -63,4 +63,61 @@ ul, ol {
     position: relative;
     margin-bottom: 30px;
     margin-top: 15px;
+
+    .title {
+        display: inline;
+        text-transform: uppercase;
+        margin: 0px;
+    }
+
+    .section-nav {
+        float: right;
+
+        .section-tab-nav {
+            display: inline-block;
+
+            li {
+                display: inline-block;
+                margin-right: 15px;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+
+                a {
+                    font-weight: 700;
+                    color: #8d99ae;
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 0%;
+                        height: 2px;
+                        background-color: $primary;
+                        -webkit-transition: 0.2s all;
+                        transition: 0.2s all;
+                    }
+
+                    &:hover:after, &:focus:after {
+                        width: 100%;
+                    }
+                }
+            }
+
+            li.active {
+                a {
+                    color: $primary;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .products-slick-nav {
+            top: 0px;
+            right: 0px;
+        }
+    }
 }
